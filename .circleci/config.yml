@@ -18,7 +18,11 @@ jobs:
           name: Write World
           command: |
             echo "World!"
-            echo <<MY_ENV>>
+  myName:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo "<<MY_ENV>>"
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -27,3 +31,4 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - myName
