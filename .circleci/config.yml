@@ -18,7 +18,7 @@ jobs:
           name: Write World
           command: |
             echo "World!"
-
+            echo <<MY_ENV>>
 workflows:
   # Name the workflow "welcome"
   welcome:
