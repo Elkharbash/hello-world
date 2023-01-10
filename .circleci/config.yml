@@ -28,6 +28,11 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: cat ~/output.txt
+      - run: return 1
+      - run:
+          name: Fail condition
+          command: echo "Hello, Error"
+          when: on_fail
   pipeline_id:
     docker:
       - image: circleci/node:13.8.0
